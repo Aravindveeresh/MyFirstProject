@@ -8,10 +8,19 @@
     <script type="text/javascript">
         function readXML() {
             var xml = new XMLHttpRequest();
-            xml.open('GET', 'books.xml',false);
+            xml.open('GET', 'xml.xml',false);
             xml.send();
-            var xmlData = xml.responseText;
-            document.write(xmlData);
+            var xmlData = xml.responseXML;
+            if(!xmlData) {
+                xmlData = (new DOMParser()).parseFromString(xml.responseText, 'text/xml');
+            }
+            var emp = xmlData.getElementsByTagName("employee")[0];
+            var name = emp.getElementsByTagName("name")[0].firstChild.data;
+            var age = emp.getElementsByTagName("age")[0].firstChild.data;
+            var salary = "RS " + emp.getElementsByTagName("salary")[0].firstChild.data;
+            document.write("Name = "+name+"</br>");
+            document.write("Age = "+age+"</br>");
+            document.write("Salary = "+salary+"</br>");
         }
     </script>
 </head>
