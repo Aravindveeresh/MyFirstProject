@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<company>
+    <employee>
+        <name>Aravind</name>
+        <age>23</age>
+        <salary>33000</salary>
+    </employee>
+</company>
+
+</xml>
